@@ -29,7 +29,7 @@ if not os.path.exists('Results/FI'):
     os.makedirs('Results/FI')
 
 if not os.path.exists('Results/Ca'):
-    os.makedirs('Results/FI')
+    os.makedirs('Results/Ca')
     
 h.load_file('stdlib.hoc')
 h.load_file('import3d.hoc')

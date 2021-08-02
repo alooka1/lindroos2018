@@ -84,7 +84,7 @@ class MSN:
                     "caldyn",
                     "sk",
                     "bk"
-                ]:
+                    ]:
                 sec.insert(mech)
                 
         for sec in self.axonlist:
