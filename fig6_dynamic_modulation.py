@@ -19,7 +19,12 @@ import numpy                as np
 import plot_functions       as fun
 import MSN_builder          as build
 import json
+import sys
 
+import os
+
+if not os.path.exists('Results/Dynamic'):
+    os.makedirs('Results/Dynamic')
 
 h.load_file('stdlib.hoc')
 h.load_file('import3d.hoc')
@@ -226,7 +231,14 @@ def main(par="./params_dMSN.json", \
     # specify pointer 
     if target == 'control':
         target='Target1p'
-    cmd         = 'pointer = casc._ref_'+target
+    cmd         = 'pointer = casc._ref_'+target #WORKING
+    pointer =   casc._ref_Target1p
+    #pointer = 'casc._ref_' #+ target
+    #cmd = pointer+target
+    
+    #cmd         = pointer = str(casc.ref)+target
+    #cmd = casc.pointer.s() + target
+    
     exec(cmd)
     base_mod    = SUBSTRATES[target][0]
     max_mod     = SUBSTRATES[target][1]
@@ -522,7 +534,11 @@ if __name__ == "__main__":
         RES = fun.load_obj( './Results/Dynamic/SPIKES.pkl' )          
             
     print('plotting')            
-    fun.plot_fig6B('./Results/Dynamic/', RES)            
+    fun.plot_fig6B('./Results/Dynamic/', RES)   
+
+#%%
+print('plotting')            
+fun.plot_fig6B('./Results/Dynamic/', RES)            
     
                         
                                                     

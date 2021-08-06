@@ -10,7 +10,8 @@ import sys
 import os
 from joblib import Parallel, delayed
 import multiprocessing
-import pickle
+#import pickle
+import dill as pickle
 from mpl_toolkits.axes_grid1.inset_locator import zoomed_inset_axes
 from scipy.stats import linregress
 from scipy import stats
@@ -660,10 +661,10 @@ def format_boxplot(bp, median=False, lw=2, colors=None):
         for c,box in enumerate(bp['boxes']):
             box.set(color=colors[c], linewidth=lw)
         for c,w in enumerate(bp['whiskers']):
-            c = c/2
+            c = c//2
             w.set(color=colors[c], linewidth=lw)
         for c,cap in enumerate(bp['caps']):
-            c=c/2
+            c=c//2
             cap.set(color=colors[c], linewidth=lw)
         for c,flier in enumerate(bp["fliers"]):
             flier.set(marker='|', markersize=2, markerfacecolor=colors[c], markeredgecolor=colors[c])
@@ -2160,7 +2161,8 @@ def plot_Ca(fString):
     
     #print x
     #print mean_amp
-    mean_amp = np.divide(mean_amp, mean_amp[3])
+    #mean_amp = np.divide(mean_amp, mean_amp[3])
+    mean_amp = np.divide(mean_amp, mean_amp[0])
     
     #day et al 2008
     [x1,y1] = np.loadtxt('Exp_data/bAP/bAP-DayEtAl2006-D1.csv', unpack=True)

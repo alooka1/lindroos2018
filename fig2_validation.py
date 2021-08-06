@@ -276,6 +276,12 @@ if __name__ == "__main__":
     # PLOTTING
     fun.plot_Ca('Results/Ca/ca*.out')
     fun.plot_vm()
+    plt.show()    
+
+#%%
+    # PLOTTING
+    fun.plot_Ca('Results/Ca/ca*.out')
+    fun.plot_vm()
     plt.show()        
 
                                                     

@@ -122,8 +122,8 @@ class MSN:
             sec.ena = 50
             sec.ek = -85 # -90
 
-        #with open(params) as file:
-        #    par = json.load(file)
+        with open(params) as file:
+            par = json.load(file)
         if type(par) is not dict:
             print(par)
         self.distribute_channels("soma", "g_pas", 0, 1, 0, 0, 0, float(par['g_pas_all']['Value']))
